@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ album.title }}</title>
+    <link rel="stylesheet" href="{% static 'CSS/styles.css' %}">
+    <script src="{% static 'JS/test.js' %}"></script>
+</head>
+<body>
+    <h1>Album Details</h1>
+    <hr>
+    <br>
+    <br>
+    {% if album.cover_image %}
+        <img width="100" src="{{ album.cover_image.url }}" alt="{{ album.title }}">
+    {% endif %}
+    <h3> Title: {{ album.title }}</h3>
+    <h3> Artist: {{ album.artist }}</h3>
+    <h3> Genre: {{ album.genre }}</h3>
+    <h3> Ratings:{{ album.rating }}</h3>
+    <h3>Songs: </h3>
+    {% if songs %}
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Song File</th>
+            </tr>
+            {% for song in songs %}
+            <tr>
+                <td>{{ song.name }}</td>
+                {% if song.file %}
+                    <td><audio controls><source src="{{ song.file.url }}" type="audio/mpeg"></audio></td>
+                {% else %}
+                    <td>No file associated</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h3>No songs added to this album</h3>
+    {% endif %}
+</body>
+</html>

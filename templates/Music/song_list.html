@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Albums</title>
+    <style>
+        table {
+            border: solid 3px;
+            width: 100%;
+        }
+        th {
+            border-bottom: solid 3px;
+            border-right: solid 3px;
+            font-size: 20px;
+        }
+        td, tr {
+            height: 40px;
+            border-right: solid 1px;
+            border-bottom: solid 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Song </h1>
+    <hr>
+    <br>
+    <br>
+    <h4>You have {{ all_songs|length }} songs</h4>
+    <table>
+        <tr>
+            <th>Name</th>
+        </tr>
+        {% for song in all_songs %}
+        <tr>
+            <td>{{ song.name | title }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

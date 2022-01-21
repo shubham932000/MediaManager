@@ -1,0 +1,9 @@
+ table {
+            border: solid black 2px;
+ }
+ td {
+     border-bottom: solid 1px;
+ }
+ img {
+     border: solid black 3px;
+ }

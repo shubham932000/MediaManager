@@ -1,0 +1,51 @@
+{#{% load song_count %}#}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Albums</title>
+    <style>
+        table {
+            border: solid 3px;
+            width: 100%;
+        }
+        th {
+            border-bottom: solid 3px;
+            border-right: solid 3px;
+            font-size: 20px;
+        }
+        td, tr {
+            height: 40px;
+            border-right: solid 1px;
+            border-bottom: solid 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Albums </h1>
+    <hr>
+    <br>
+    <br>
+    <h4>You have {{ all_albums|length }} albums</h4>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Rating</th>
+{#            <th>Song Count</th>#}
+        </tr>
+        {% for album in all_albums %}
+        <tr>
+            <td><a href="{% url 'album_details' album.id  %}">{{ album.title| title }}</a></td>
+            <td>{{ album.artist| title }}</td>
+            <td>{{ album.genre| title }}</td>
+            <td>{{ album.rating | center:'15' }}</td>
+{#            <td>{{ album|song_count }}</td>#}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

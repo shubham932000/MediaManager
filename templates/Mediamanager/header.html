@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <h1>Welcome {{ request.user.first_name }}  {{ request.user.last_name }}</h1>
+    <hr>
+    <table>
+        <tr>
+            <td><a href="{% url 'music_home' %}"><button class="button-index">Music</button></a></td>
+            <td><button class="button-index">Videos</button></td>
+            <td><button class="button-index">Pictures</button></td>
+            <td><a href="{% url 'logout_user' %}"><button class="button-index">Logout</button></a></td>
+        </tr>
+    </table>
+
+
+    {% block page %}
+    {% endblock %}
+</body>
+
+</html>

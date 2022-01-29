@@ -1,0 +1,51 @@
+{% extends "MediaManager/header-index.html" %}
+{% load static %}
+
+{% block head %}
+    <title>{{ album.title }}</title>
+    <link rel="stylesheet" href="{% static "CSS/styles.css" %}">
+{% endblock %}
+
+{% block page %}
+    <br>
+    <br>
+    <br>
+    <h2>Welcome Back</h2>
+    <br>
+    <form method="post" action="">
+        <table class="form-table">
+            {% csrf_token %}
+            <tr>
+                <td class="form-table">Choose a Username: </td>
+                <td class="form-table"><input class="inputData" type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td class="form-table">Enter First Name: </td>
+                <td class="form-table"><input class="inputData"  type="text" name="fname"></td>
+            </tr>
+            <tr>
+                <td class="form-table">Enter Last Name: </td>
+                <td class="form-table"><input class="inputData"  type="text" name="lname"></td>
+            </tr>
+            <tr>
+                <td class="form-table">Enter Email Address: </td>
+                <td class="form-table"><input class="inputData"  type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td class="form-table">Enter Password: </td>
+                <td class="form-table"><input class="inputData"  type="password" name="password1"></td>
+            </tr>
+            <tr>
+                <td class="form-table">Confirm Password: </td>
+                <td class="form-table"><input class="inputData"  type="password" name="password2"></td>
+            </tr>
+            <tr>
+                <td  class="form-table" colspan="2">
+                    <input class="inputData" type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+
+
+    </form>
+{% endblock %}

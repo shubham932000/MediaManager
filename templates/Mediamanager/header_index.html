@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <hr>
+    <table>
+        <tr>
+            <td><a href="{% url 'login_user' %}"><button class="button-index" style="background-color: greenyellow">Login</button></a></td>
+            <td><a href="{% url 'register_user' %}"><button class="button-index" style="background-color: yellow">Register</button></a></td>
+        </tr>
+    </table>
+
+
+    {% block page %}
+    {% endblock %}
+</body>
+
+</html>
